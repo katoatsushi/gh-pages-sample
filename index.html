@@ -1,21 +1,19 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="example.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<!-- https://itsakura.com/jquery-ajax -->
 
- 	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-	<script type="text/javascript">
+	<script type="text/javascript">		
+
 		var request = new XMLHttpRequest();
  
 		request.open('GET', 'https://wfc2-image-api-259809.appspot.com/api/series/', true);
 		request.responseType = 'json';
 
 		request.onload = function () {
-		    var data = this.response;	
+		    var data = this.response;
 
 			for(let i = 0; i < data.data.length; i++) {
 
@@ -66,8 +64,6 @@
 
     <title>漫画ビューアー</title>
 </head>
-<!-- 一覧 -->
-<!-- https://wfc2-image-api-259809.appspot.com/api/series/ -->
-<button class="fixed_btn">ボタン</button>
 <div id="div_main"></div>
+
 

@@ -43,3 +43,45 @@
 	font-weight: 800;
 	font-size: 1.6em;
 }
+
+.box{
+	width: 80%;
+	margin: auto;	
+}
+
+  input[type=range] {
+  	margin: 30px;
+    -webkit-appearance:none;
+    background: white;
+    height:24px;
+    width: 90%;
+    border-radius:8px;
+    position: fixed;
+    bottom : 10px;
+    left: 10px;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    background: #FF8C00;
+    height:30px;
+    width:30px;
+    border-radius:50%;
+  }
+  input[type=range]::-ms-tooltip{
+    display:none;
+
+  }
+  input[type=range]::-moz-range-track{
+    height:0;
+  }
+  input[type=range]::-ms-track{
+    color: red;
+    background-color: red;
+  }
+  input[type=range]::-moz-range-thumb{
+    background:#f00;
+    height:20px;
+    width:20px;
+    border:none;
+    border-radius:50%;
+  }

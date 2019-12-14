@@ -4,43 +4,77 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="example.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script type="text/javascript">
-    var params = (new URL(document.location)).searchParams;
-    var comicId  = params.get('comic_id');
-    var request = new XMLHttpRequest();
+    <link rel="stylesheet" href="perfect-scrollbar.css" />
+    <script src="perfect-scrollbar.js"></script>
 
-    console.log(comicId);
-    const url = ("https://wfc2-image-api-259809.appspot.com/api/books/" + comicId + "/")
-    console.log(url)
+    <script type="text/javascript">
+      var params = (new URL(document.location)).searchParams;
 
-    request.open('GET', url , true);
-    request.responseType = 'json';
+      console.log(params)
 
-    request.onload = function () {
-        var data = this.response;
-        console.log(data.imageData.length);
-        for(let i = 0; i < data.imageData.length; i++) {
-          const div_book = document.getElementById("div_book");
+      var comicId  = params.get('comic_id');
+      var request = new XMLHttpRequest();
 
-          const img = document.createElement("img");        
-          img.setAttribute("src", data.imageData[i].imageUrl);
-          img.setAttribute("class", "show_image");
+      console.log(comicId);
+      const url = ("https://wfc2-image-api-259809.appspot.com/api/books/" + comicId + "/")
+      console.log(url)
 
-          div_book.appendChild(img)
+      request.open('GET', url , true);
+      request.responseType = 'json';
 
-        }
-        console.log(data);
-    };
-    request.send(); 
+      request.onload = function () {
+          var data = this.response;
 
-  </script>
+           // スライダーページネーション 
+          // setMax(data.imageData.length);
+
+          for(let i = 0; i < data.imageData.length; i++) {
+            const div_book = document.getElementById("div_book");
+
+            const img = document.createElement("img"); 
+            img.setAttribute("id", i + 1);  
+            img.setAttribute("src", data.imageData[i].imageUrl);
+            img.setAttribute("class", "show_image");
+
+            div_book.appendChild(img)
+
+          }
+          console.log(data);
+      };
+      request.send(); 
+
+      // function setMax( $max ) {
+      //     var $elementReference = document.getElementById( "sample" );
+      //     $elementReference.max = $max;
+      //     var $max = $elementReference.max;
+      //     var $value = $elementReference.value;
+      // }
+
+      // function getValue() {
+      //     var $elementReference = document.getElementById( "sample" );
+      //     var $value = $elementReference.value;
+      //     redirectToPage( $value )
+      // }
+
+      // function redirectToPage( $value ) {
+      //   var new_url = window.location.href + "#" + $value
+      //   window.location.href =  new_url        
+      // }
+
+    </script>
+
     <title>漫画ビューアー</title>
 </head>
 
 <div class="row background">
   <div class="col-lg-3 col-xs-0"></div>
   <div class="col-lg-6 col-xs-12 center"">
+
     <div id="div_book"></div>
-  </div
+
+    <!-- <input type="range" value="0" id="sample"  onchange="getValue()"> -->
+
   <div class="col-lg-3 col-xs-0"></div>
 </div>
+
+
