@@ -1,0 +1,45 @@
+.volumes {
+	color: #00CCFF;
+	font-weight: 800;	
+}
+
+.publisher {
+	color: #00CCFF;
+	font-weight: 800;
+}
+.top-img{
+	max-width: 30%;
+}
+
+.title{
+  background: #c2edff;
+  padding: 0.5em;
+}
+
+.show_image{
+	max-width: 80%;
+	margin-top: 0 auto;
+}
+.background{
+	background-color: #AAAAAA;
+}
+
+.center {
+	margin: auto 0;
+	/*margin: 0 auto;*/
+
+}
+
+.fixed_btn {
+  position: fixed;
+  bottom: 10px; 
+  right: 10px;
+  padding: 6px 40px;
+  width: 200px;
+  background-color: red;
+}
+
+.book_title_css{
+	font-weight: 800;
+	font-size: 1.6em;
+}

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="example.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- https://itsakura.com/jquery-ajax -->
+
+ 	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script type="text/javascript">
+		var request = new XMLHttpRequest();
+ 
+		request.open('GET', 'https://wfc2-image-api-259809.appspot.com/api/series/', true);
+		request.responseType = 'json';
+
+		request.onload = function () {
+		    var data = this.response;	
+
+			for(let i = 0; i < data.data.length; i++) {
+
+			  const div_main = document.getElementById("div_main");
+			  div_main.setAttribute("class", "row");
+
+			  const div_main_card = document.createElement("div");
+			  div_main_card.setAttribute("class", "col-lg-3 col-xs-6");
+
+			  const div_title = document.createElement("div");
+			  div_title.setAttribute("class", "volumes");
+
+			  const div_publish = document.createElement("div");
+			  const div_volumes = document.createElement("div");			 
+			  const img = document.createElement("img");			  
+			  img.setAttribute("src", data.data[i].seriesImage);
+			  img.setAttribute("class", "top-img");	
+
+			  const title = document.createTextNode('タイトル:' + data.data[i].title);
+			  const publisher = document.createTextNode('出版社:' + data.data[i].publisher);
+			  const volumes = document.createTextNode('全' + data.data[i].volumes + '巻');
+
+			  const a1 = document.createElement("a");
+			  a1.href = ('show.html?series_id=' + data.data[i].seriesId)
+			  a1.target = "_blank";
+			  a1.innerText = "この漫画の全巻を見る";
+			  a1.setAttribute("class", "btn btn-success btn-lg");
+
+			  div_title.appendChild(title);
+			  div_publish.appendChild(publisher);
+			  div_volumes.appendChild(volumes);
+
+			  div_main_card.appendChild(div_title);
+			  div_main_card.appendChild(div_publish);
+			  div_main_card.appendChild(div_volumes);
+			  div_main_card.appendChild(img);
+			  div_main_card.appendChild(a1);
+
+			  div_main.appendChild(div_main_card)
+			  // 親.appendChild(子)
+			}
+
+		    console.log(data);
+		};
+		request.send();
+
+	</script>
+
+    <title>漫画ビューアー</title>
+</head>
+<!-- 一覧 -->
+<!-- https://wfc2-image-api-259809.appspot.com/api/series/ -->
+<button class="fixed_btn">ボタン</button>
+<div id="div_main"></div>
+

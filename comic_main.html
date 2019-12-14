@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="example.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script type="text/javascript">
+    var params = (new URL(document.location)).searchParams;
+    var comicId  = params.get('comic_id');
+    var request = new XMLHttpRequest();
+
+    console.log(comicId);
+    const url = ("https://wfc2-image-api-259809.appspot.com/api/books/" + comicId + "/")
+    console.log(url)
+
+    request.open('GET', url , true);
+    request.responseType = 'json';
+
+    request.onload = function () {
+        var data = this.response;
+        console.log(data.imageData.length);
+        for(let i = 0; i < data.imageData.length; i++) {
+          const div_book = document.getElementById("div_book");
+
+          const img = document.createElement("img");        
+          img.setAttribute("src", data.imageData[i].imageUrl);
+          img.setAttribute("class", "show_image");
+
+          div_book.appendChild(img)
+
+        }
+        console.log(data);
+    };
+    request.send(); 
+
+  </script>
+    <title>漫画ビューアー</title>
+</head>
+
+<div class="row background">
+  <div class="col-lg-3 col-xs-0"></div>
+  <div class="col-lg-6 col-xs-12 center"">
+    <div id="div_book"></div>
+  </div
+  <div class="col-lg-3 col-xs-0"></div>
+</div>

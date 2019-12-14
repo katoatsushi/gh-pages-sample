@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="example.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script type="text/javascript">	
+		var params = (new URL(document.location)).searchParams;
+		var seriesId  = params.get('series_id');
+
+		var request = new XMLHttpRequest();
+ 
+		request.open('GET', "https://wfc2-image-api-259809.appspot.com/api/series/" + seriesId + "/", true);
+		request.responseType = 'json';
+
+		request.onload = function () {
+		    var data = this.response;
+
+		    const books = data.books
+		    for(let i = 0; i < books.length; i++) {
+		    	const div_main = document.getElementById("div_book");
+		    	div_main.setAttribute("class", "row");
+
+		    	const inner_box = document.createElement("div");
+				inner_box.setAttribute("class", "col-lg-3 col-xs-6");
+		    	const id_box = document.createElement("div");
+		    	id_box.setAttribute("class", "title");
+ 				const book_id = document.createTextNode('id:' + books[i].id);
+
+
+				const a1 = document.createElement("a");
+				a1.href = ('comic_main.html?comic_id=' + books[i].id)
+				a1.target = "_blank";
+				a1.innerText = "この漫画を読む";
+				a1.setAttribute("class", "btn btn-success btn-lg");
+
+		    	const img = document.createElement("img");			  
+			  	img.setAttribute("src", books[i].image);
+			  	img.setAttribute("class", "show_image");
+
+			  	const title = document.createElement("div");
+			  	title.setAttribute("class", "title book_title_css");
+			  	// title.setAttribute("class", "book_title_css");
+			  	const book_title = document.createTextNode( books[i].title);				
+
+		    	id_box.appendChild(book_id)
+		    	title.appendChild(book_title)
+
+		    	div_main.appendChild(inner_box)
+		    	inner_box.appendChild(id_box)
+		    	inner_box.appendChild(title)
+				inner_box.appendChild(img)
+				inner_box.appendChild(a1)
+		    }		   
+		    console.log(data);
+
+		};
+
+		request.send();	
+
+	</script>
+
+    <title>漫画ビューアー</title>
+</head>
+<!-- 一覧 -->
+<!-- https://wfc2-image-api-259809.appspot.com/api/series/ -->
+
+<div id="div_book"></div>
