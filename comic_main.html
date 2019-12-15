@@ -2,10 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="example.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="small.css" media="screen and (max-width:480px)">
+    <link rel="stylesheet" href="example.css" media="screen and (min-width:481px)">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="perfect-scrollbar.css" />
-    <script src="perfect-scrollbar.js"></script>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <script type="text/javascript">
       var params = (new URL(document.location)).searchParams;
@@ -13,6 +18,8 @@
       console.log(params)
 
       var comicId  = params.get('comic_id');
+      var seriesId = params.get('series_id');
+
       var request = new XMLHttpRequest();
 
       console.log(comicId);
@@ -25,9 +32,21 @@
       request.onload = function () {
           var data = this.response;
 
-           // スライダーページネーション 
-          // setMax(data.imageData.length);
 
+          const div_return = document.getElementById("div_return");
+
+          const return_box = document.createElement("div");
+          return_box.setAttribute("class", "return_button");      
+
+          const a1 = document.createElement("a");
+          a1.href = ('show.html?series_id=' + seriesId)
+          a1.target = "_blank";
+          a1.innerText = "戻る";
+
+          return_box.appendChild(a1)
+          div_return.appendChild(return_box)
+
+          
           for(let i = 0; i < data.imageData.length; i++) {
             const div_book = document.getElementById("div_book");
 
@@ -43,24 +62,6 @@
       };
       request.send(); 
 
-      // function setMax( $max ) {
-      //     var $elementReference = document.getElementById( "sample" );
-      //     $elementReference.max = $max;
-      //     var $max = $elementReference.max;
-      //     var $value = $elementReference.value;
-      // }
-
-      // function getValue() {
-      //     var $elementReference = document.getElementById( "sample" );
-      //     var $value = $elementReference.value;
-      //     redirectToPage( $value )
-      // }
-
-      // function redirectToPage( $value ) {
-      //   var new_url = window.location.href + "#" + $value
-      //   window.location.href =  new_url        
-      // }
-
     </script>
 
     <title>漫画ビューアー</title>
@@ -68,11 +69,17 @@
 
 <div class="row background">
   <div class="col-lg-3 col-xs-0"></div>
-  <div class="col-lg-6 col-xs-12 center"">
+  <div class="col-lg-6 col-xs-12">
 
-    <div id="div_book"></div>
+    
+    <div id = "div_return"></div>
 
-    <!-- <input type="range" value="0" id="sample"  onchange="getValue()"> -->
+    <div id="div_book" class="center"></div>
+
+    <a href="index.html" class="back_button">
+      <i class="fa fa-home"></i>
+    </a>
+
 
   <div class="col-lg-3 col-xs-0"></div>
 </div>
