@@ -74,13 +74,8 @@
 		    	const inner_box = document.createElement("div");
 				inner_box.setAttribute("class", "col-lg-3 col-xs-6 comic_outer_box");
 
-		   		//  	const id_box = document.createElement("div");
-		   		//  	id_box.setAttribute("class", "volumes");
- 				// const book_id = document.createTextNode('id:  ' + books[i].id);
-
 				const a1 = document.createElement("a");
 				a1.href = ('comic_main.html?comic_id=' + books[i].id + '&&series_id=' + seriesId)
-				a1.target = "_blank";
 				a1.innerText = "この漫画を読む";
 				a1.setAttribute("class", "btn btn-primary btn-lg btn-block");
 
@@ -91,12 +86,9 @@
 			  	const title = document.createElement("div");
 			  	title.setAttribute("class", "title book_title_css");
 			  	const book_title = document.createTextNode( books[i].title);				
-
-		    	// id_box.appendChild(book_id)
 		    	title.appendChild(book_title)
 
 		    	div_main.appendChild(inner_box)
-		    	// inner_box.appendChild(id_box)
 		    	inner_box.appendChild(title)
 				inner_box.appendChild(img)
 				inner_box.appendChild(a1)
