@@ -32,30 +32,39 @@
 
 			  const div_title = document.createElement("div");
 			  div_title.setAttribute("class", "volumes");
+			  const title = document.createTextNode(data.data[i].title);
+			  div_title.appendChild(title);
 
 			  const div_publish = document.createElement("div");
-			  const div_volumes = document.createElement("div");			 
+			  const publisher = document.createTextNode('出版社:' + data.data[i].publisher);
+			  div_publish.appendChild(publisher);
+
+			  const div_volumes = document.createElement("div");
+			  const volumes = document.createTextNode('全' + data.data[i].volumes + '巻');		
+			  div_volumes.appendChild(volumes);
+
+			  const div_desc = document.createElement("div");
+			  if(data.data[i].description.length <= 43){
+			  	str = data.data[i].description
+			  } else {
+			  	str = data.data[i].description.substring(0, 43) + '.....';
+			  }
+			  const description = document.createTextNode(str);	
+			  div_desc.appendChild(description);
+			  
 			  const img = document.createElement("img");			  
 			  img.setAttribute("src", data.data[i].seriesImage);
 			  img.setAttribute("class", "top-img");	
 
-			  const title = document.createTextNode(data.data[i].title);
-			  const publisher = document.createTextNode('出版社:' + data.data[i].publisher);
-			  const volumes = document.createTextNode('全' + data.data[i].volumes + '巻');
-
 			  const a1 = document.createElement("a");
 			  a1.href = ('show.html?series_id=' + data.data[i].seriesId)
 			  a1.innerText = "この漫画の全巻を見る";
-			  a1.setAttribute("class", "btn btn-primary btn-lg btn-block");
-
-			  div_title.appendChild(title);
-			  div_publish.appendChild(publisher);
-			  div_volumes.appendChild(volumes);
-
+			  a1.setAttribute("class", "btn btn-primary btn-lg btn-block");			  
 			  div_main_card.appendChild(div_title);
 			  div_main_card.appendChild(div_publish);
 			  div_main_card.appendChild(div_volumes);
 			  div_main_card.appendChild(img);
+			  div_main_card.appendChild(div_desc);
 			  div_main_card.appendChild(a1);
 
 			  div_main.appendChild(div_main_card)

@@ -104,7 +104,6 @@
 .comic_outer_box{
   margin: 3px;
   padding-bottom: 10px;
-  /*border: medium solid grey;*/
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0 6px 5px rgba(0, 0, 0, 0.22);
 }
