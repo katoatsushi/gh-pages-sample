@@ -150,3 +150,15 @@
 
 }
 
+.book_title_css{
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.title{
+  background: #c2edff;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 10px 10px 0px 0px;
+}
+
