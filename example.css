@@ -8,24 +8,26 @@
 	font-weight: 800;
 }
 .top-img{
-	max-width: 30%;
+	max-width: 100%;
 }
 
 .title{
   background: #c2edff;
   padding: 0.5em;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .show_image{
-	max-width: 80%;
-	margin-top: 0 auto;
+	max-width: 100%;
+	margin: 0 auto;
+  padding-bottom: 20px;
 }
 .background{
 	background-color: #AAAAAA;
 }
 
 .center {
-	margin: auto 0;
+	margin: 0 auto;
 }
 
 .fixed_btn {
@@ -39,7 +41,7 @@
 
 .book_title_css{
 	font-weight: 800;
-	font-size: 1.6em;
+	font-size: 1.0em;
 }
 
 .box{
@@ -86,17 +88,7 @@
 }
 
 
-
-/*.return_button{
-  position: fixed;
-  bottom : 20px;
-  left: 100px;
-
-  background-color: red;
-}*/
-
 .return_button {
-/*  position: relative;*/
   width: 100px;
   height: 50px;
   font-size: 1.4em;
@@ -122,4 +114,66 @@
   border-bottom: solid 2px #00BCD4;
   box-shadow: none;
   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+.header_main{
+  height: 100px;
+  background-color:#CCFFFF ;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.header_title{
+  display: inline-block;
+    /*display: table-cell;*/
+  vertical-align: middle;
+  font-size: 1.9em;
+  font-weight: 800;
+  text-align: center;
+  margin: auto 0;
+}
+
+.comic_outer_box{
+  margin-bottom: 10px;
+}
+
+
+/*以下showの部分*/
+
+.book_title_show{
+  font-family: Meiryo, 'Hiragino Maru Gothic ProN', sans-serif;
+  font-size: 1.8em;
+  font-weight: 900;
+  color: grey;
+  margin-bottom: 30px;
+}
+
+.show-img{
+  max-width: 100%;
+}
+
+.btn-comic{
+  color: white;
+  background-color: #FF8C00;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #FF8C00;
+}
+
+
+.book_author_show{
+
+}
+
+.book_description_show{
+  box-shadow: 0 0 5px #CCCCCC;
+  border-radius: 10px 10px 10px 10px;
+  padding: 10px;
+  margin-top: 30px;
+}
+.book_publisher_show{
+
 }

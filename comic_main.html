@@ -40,20 +40,19 @@
 
           const a1 = document.createElement("a");
           a1.href = ('show.html?series_id=' + seriesId)
-          a1.target = "_blank";
           a1.innerText = "戻る";
 
           return_box.appendChild(a1)
           div_return.appendChild(return_box)
 
-          
+
           for(let i = 0; i < data.imageData.length; i++) {
             const div_book = document.getElementById("div_book");
 
             const img = document.createElement("img"); 
             img.setAttribute("id", i + 1);  
             img.setAttribute("src", data.imageData[i].imageUrl);
-            img.setAttribute("class", "show_image");
+            img.setAttribute("class", "show_image center");
 
             div_book.appendChild(img)
 

@@ -42,18 +42,8 @@
   max-width: 100%;
 }
 
-/*.return_button{
-  position: fixed;
-  bottom : 10px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  background-color: red;
-}*/
-
 
 .return_button {
-/*  position: relative;*/
   position: fixed;
   bottom : 20px;
   left: 10px;
@@ -79,3 +69,81 @@
   box-shadow: none;
   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
 }
+
+
+.volumes{
+  color: #00CCFF;
+  font-weight: 800; 
+  font-size: 1.5em;
+}
+
+.top-img{
+  max-width: 100%;
+}
+
+.header_main{
+  height: 80px;
+  background-color:#CCFFFF ;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.header_title{
+  display: inline-block;
+  padding-top: 10px;
+  vertical-align: middle;
+  font-size: 1.9em;
+  font-weight: 800;
+  text-align: center;
+  margin: auto 0;
+}
+
+.comic_outer_box{
+  margin: 3px;
+  padding-bottom: 10px;
+  /*border: medium solid grey;*/
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.22);
+}
+
+
+.show-img{
+  max-width: 100%;
+}
+
+.book_title_show{
+  font-family: Meiryo, 'Hiragino Maru Gothic ProN', sans-serif;
+  font-size: 1.8em;
+  font-weight: 900;
+  color: grey;
+}
+
+.show-img{
+  max-width: 100%;
+}
+
+.btn-comic{
+  color: white;
+  background-color: #FF8C00;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #FF8C00;
+}
+
+
+.book_author_show{
+
+}
+
+.book_description_show{
+  box-shadow: 0 0 5px #CCCCCC;
+  border-radius: 10px 10px 10px 10px;
+  padding: 10px;
+  margin-top: 3px;
+}
+.book_publisher_show{
+
+}
+

@@ -2,7 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="example.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="small.css" media="screen and (max-width:480px)">
+    <link rel="stylesheet" href="example.css" media="screen and (min-width:481px)">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -23,7 +28,7 @@
 			  div_main.setAttribute("class", "row");
 
 			  const div_main_card = document.createElement("div");
-			  div_main_card.setAttribute("class", "col-lg-3 col-xs-6");
+			  div_main_card.setAttribute("class", "col-lg-3 col-xs-6 comic_outer_box");
 
 			  const div_title = document.createElement("div");
 			  div_title.setAttribute("class", "volumes");
@@ -34,15 +39,15 @@
 			  img.setAttribute("src", data.data[i].seriesImage);
 			  img.setAttribute("class", "top-img");	
 
-			  const title = document.createTextNode('タイトル:' + data.data[i].title);
+			  const title = document.createTextNode(data.data[i].title);
 			  const publisher = document.createTextNode('出版社:' + data.data[i].publisher);
 			  const volumes = document.createTextNode('全' + data.data[i].volumes + '巻');
 
 			  const a1 = document.createElement("a");
 			  a1.href = ('show.html?series_id=' + data.data[i].seriesId)
-			  a1.target = "_blank";
+			  // a1.target = "_blank";
 			  a1.innerText = "この漫画の全巻を見る";
-			  a1.setAttribute("class", "btn btn-success btn-lg");
+			  a1.setAttribute("class", "btn btn-primary btn-lg btn-block");
 
 			  div_title.appendChild(title);
 			  div_publish.appendChild(publisher);
@@ -55,7 +60,6 @@
 			  div_main_card.appendChild(a1);
 
 			  div_main.appendChild(div_main_card)
-			  // 親.appendChild(子)
 			}
 
 		    console.log(data);
@@ -67,8 +71,15 @@
     <title>漫画ビューアー</title>
 </head>
 
-<div id="div_main"></div>
 
-<a href="index.html" class="back_button">
-  <i class="fa fa-home"></i>
-</a>
+<div class="header_main">
+	<div class="header_title">漫画リーダー</div>
+</div>
+
+<div class="container">
+	<div id="div_main"></div>
+
+	<a href="index.html" class="back_button">
+	  <i class="fa fa-home"></i>
+	</a>
+</div>
